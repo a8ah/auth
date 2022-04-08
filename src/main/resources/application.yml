@@ -1,0 +1,45 @@
+#Server ================
+server:
+    port: 8181
+    servlet:
+      context-path:
+      session:
+        timeout: 3600
+logging:
+    level:
+        org.springframework.web: debug #debug off
+        org.hibernate.type: trace #trace off
+
+#Spring   ===============
+spring:
+    datasource:
+        url: jdbc:hsqldb:hsql://localhost/authdb
+        username: sa
+        password:
+        test-on-borrow: true
+        validation-query: SELECT 1
+        driver-class-name: org.hsqldb.jdbc.JDBCDriver
+#    flyway:
+#        baselineOnMigrate: true
+#        baselineVersion: 1
+#        enabled: true
+#        locations: filesystem:Data/sql_updates/run_prod_update_scripts
+    jpa:
+        generate-ddl: true
+        show_sql:  true #true false
+        hibernate:
+            ddl-auto: update #validate|update|none
+        properties:
+            hibernate.dialect: org.hibernate.dialect.HSQLDialect
+            hibernate.show_sql: true #true false
+            hibernate.format_sql: true
+            hibernate.temp.use_jdbc_metadata_defaults : false
+    jackson:
+        locale: en_US
+        time-zone: Mexico/General
+        date-format: yyyy-MM-dd'T'HH:mmZ
+        serialization:
+           write-dates-as-timestamps: false
+    servlet:
+      multipart:
+        max-file-size: 5MB
