@@ -104,7 +104,7 @@ public class BaseCrudService<T extends Entity, R extends EntityRepository<T>> {
       entity.setDeleted(false);
       entity.setCreated(LocalDateTime.now());
     } else {
-      entity.setModifited(LocalDateTime.now());
+      entity.setModified(LocalDateTime.now());
     }
 
     mRepository.save(entity);

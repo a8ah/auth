@@ -5,7 +5,7 @@ import java.util.UUID;
 
 import com.demo.auth.arch.utils.DateFormatterUtil;
 
-public class UserPrejection {
+public class UserSingUpProjection {
     
     private final UUID id;
     private final LocalDateTime created;
@@ -14,18 +14,18 @@ public class UserPrejection {
     private final String token;
     private final boolean isactive;
 
-    public UserPrejection(  UUID id, 
+    public UserSingUpProjection(  UUID id, 
                             LocalDateTime created, 
                             LocalDateTime modified, 
-                            LocalDateTime last_login,
+                            LocalDateTime lastLogin,
                             String token, 
-                            boolean isactive) {
+                            boolean isActive) {
         this.id = id;
         this.created = created;
         this.modified = modified;
-        this.last_login = last_login;
+        this.last_login = lastLogin;
         this.token = token;
-        this.isactive = isactive;
+        this.isactive = isActive;
     }
 
     public UUID getId() {

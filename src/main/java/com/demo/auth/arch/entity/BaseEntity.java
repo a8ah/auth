@@ -1,6 +1,7 @@
 package com.demo.auth.arch.entity;
 
 import com.demo.auth.arch.utils.DateFormatterUtil;
+import com.demo.auth.arch.utils.FieldConstrain;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import org.hibernate.annotations.GenericGenerator;
@@ -17,7 +18,7 @@ public abstract class BaseEntity implements Entity {
   @Id
   @GeneratedValue(generator = "UUID")
   @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
-  @Column(name = "id", updatable = false, nullable = false)
+  @Column(name = "id", updatable = false, nullable = false, length = FieldConstrain.UUID)
   private UUID id;
   
   @CreatedDate
@@ -26,8 +27,7 @@ public abstract class BaseEntity implements Entity {
 
   @JsonIgnore
   @LastModifiedDate
-  @Column
-  private LocalDateTime modifited;
+  private LocalDateTime modified;
 
   @Column
   protected boolean deleted;
@@ -54,13 +54,13 @@ public abstract class BaseEntity implements Entity {
   }
 
   @Override
-  public LocalDateTime getModifited() {
-    return modifited;
+  public LocalDateTime getModified() {
+    return modified;
   }
 
   @Override
-  public void setModifited(LocalDateTime modifited) {
-    this.modifited = modifited;
+  public void setModified(LocalDateTime modified) {
+    this.modified = modified;
   }
 
   @Override
@@ -78,10 +78,10 @@ public abstract class BaseEntity implements Entity {
   }
 
   public String getModifitedFormatted() {
-    if (this.getModifited() == null) 
+    if (this.getModified() == null) 
       return null; 
 
-    return DateFormatterUtil.format(this.getModifited());
+    return DateFormatterUtil.format(this.getModified());
   }
 
 }

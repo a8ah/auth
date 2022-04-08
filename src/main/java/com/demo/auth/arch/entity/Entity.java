@@ -13,9 +13,9 @@ public interface Entity {
 
   void setCreated(LocalDateTime created);
 
-  LocalDateTime getModifited();
+  LocalDateTime getModified();
 
-  void setModifited(LocalDateTime modifited);
+  void setModified(LocalDateTime modifited);
 
   boolean isDeleted();
 

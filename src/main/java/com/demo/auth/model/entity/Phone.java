@@ -20,10 +20,10 @@ public class Phone  extends BaseEntity{
     protected String number;
 
     @Column(name = "city_code")
-    protected Long cityCode;
+    protected String cityCode;
     
     @Column(name = "contry_code")
-    protected Long contryCode;
+    protected String contryCode;
 
     @JsonIgnore
     @ManyToOne(optional = false)
@@ -37,19 +37,23 @@ public class Phone  extends BaseEntity{
         this.number = number;
     }
 
-    public Long getCityCode() {
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public String getCityCode() {
         return cityCode;
     }
 
-    public void setCityCode(Long cityCode) {
+    public void setCityCode(String cityCode) {
         this.cityCode = cityCode;
     }
 
-    public Long getContryCode() {
+    public String getContryCode() {
         return contryCode;
     }
 
-    public void setContryCode(Long contryCode) {
+    public void setContryCode(String contryCode) {
         this.contryCode = contryCode;
     }
 }
