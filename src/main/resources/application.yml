@@ -43,3 +43,8 @@ spring:
     servlet:
       multipart:
         max-file-size: 5MB
+
+# JWT
+jwt:
+    secret: L4YgeEalKR3yt1d9eHox.93747fmlpp22kiHm6Tr256s
+    expirationDateInMs: 3600

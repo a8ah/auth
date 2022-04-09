@@ -1,8 +1,8 @@
-package com.demo.auth.service;
+package com.demo.auth.bussines.service;
 
 import com.demo.auth.arch.service.BaseCrudService;
-import com.demo.auth.model.entity.Phone;
-import com.demo.auth.model.repository.PhoneRepository;
+import com.demo.auth.bussines.model.entity.Phone;
+import com.demo.auth.bussines.model.repository.PhoneRepository;
 
 import org.springframework.stereotype.Service;
 

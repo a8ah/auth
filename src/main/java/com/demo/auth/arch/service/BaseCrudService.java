@@ -3,13 +3,7 @@ package com.demo.auth.arch.service;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.jpa.domain.Specification;
 import org.springframework.transaction.annotation.Transactional;
-
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
 
 import com.demo.auth.arch.entity.Entity;
 import com.demo.auth.arch.repository.EntityRepository;
@@ -104,7 +98,7 @@ public class BaseCrudService<T extends Entity, R extends EntityRepository<T>> {
       entity.setDeleted(false);
       entity.setCreated(LocalDateTime.now());
     } else {
-      entity.setModifited(LocalDateTime.now());
+      entity.setModified(LocalDateTime.now());
     }
 
     mRepository.save(entity);
