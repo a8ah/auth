@@ -1,4 +1,4 @@
-package com.demo.auth.controller;
+package com.demo.auth.bussines.controller;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,9 +6,9 @@ import java.util.List;
 import javax.validation.ConstraintViolation;
 import javax.validation.Valid;
 
-import com.demo.auth.model.projection.UserSingUpProjection;
-import com.demo.auth.model.projection.UserSingUpRequest;
-import com.demo.auth.service.UserService;
+import com.demo.auth.bussines.model.projection.UserSingUpProjection;
+import com.demo.auth.bussines.model.projection.UserSingUpRequest;
+import com.demo.auth.bussines.service.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;

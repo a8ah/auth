@@ -1,11 +1,11 @@
-package com.demo.auth.model.repository;
+package com.demo.auth.bussines.model.repository;
 
 import java.util.Optional;
 import java.util.UUID;
 
 import com.demo.auth.arch.repository.EntityRepository;
-import com.demo.auth.model.entity.User;
-import com.demo.auth.model.projection.UserSingUpProjection;
+import com.demo.auth.bussines.model.entity.User;
+import com.demo.auth.bussines.model.projection.UserSingUpProjection;
 
 import org.springframework.stereotype.Repository;
 

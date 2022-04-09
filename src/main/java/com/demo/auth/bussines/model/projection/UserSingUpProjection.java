@@ -1,4 +1,4 @@
-package com.demo.auth.model.projection;
+package com.demo.auth.bussines.model.projection;
 
 import java.time.LocalDateTime;
 import java.util.UUID;

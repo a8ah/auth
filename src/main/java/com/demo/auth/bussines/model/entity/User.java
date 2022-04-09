@@ -1,4 +1,4 @@
-package com.demo.auth.model.entity;
+package com.demo.auth.bussines.model.entity;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -15,7 +15,6 @@ public class User extends BaseEntity {
 
     @Column(nullable = false)
     protected String name;
-    
     
     @Column(nullable = false, unique = true)
     protected String email;

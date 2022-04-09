@@ -1,4 +1,4 @@
-package com.demo.auth.model.projection;
+package com.demo.auth.bussines.model.projection;
 
 import java.util.List;
 

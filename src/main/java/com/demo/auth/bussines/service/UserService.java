@@ -1,16 +1,16 @@
-package com.demo.auth.service;
+package com.demo.auth.bussines.service;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
 
 import com.demo.auth.arch.exceptions.CustomException;
 import com.demo.auth.arch.service.BaseCrudService;
-import com.demo.auth.model.entity.Phone;
-import com.demo.auth.model.entity.User;
-import com.demo.auth.model.projection.PhoneRequest;
-import com.demo.auth.model.projection.UserSingUpProjection;
-import com.demo.auth.model.projection.UserSingUpRequest;
-import com.demo.auth.model.repository.UserRepository;
+import com.demo.auth.bussines.model.entity.Phone;
+import com.demo.auth.bussines.model.entity.User;
+import com.demo.auth.bussines.model.projection.PhoneRequest;
+import com.demo.auth.bussines.model.projection.UserSingUpProjection;
+import com.demo.auth.bussines.model.projection.UserSingUpRequest;
+import com.demo.auth.bussines.model.repository.UserRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
