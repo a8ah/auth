@@ -1,34 +1,26 @@
 package com.demo.auth.model.entity;
 
 import java.time.LocalDateTime;
-import java.util.Collection;
 import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotBlank;
 
 import com.demo.auth.arch.entity.BaseEntity;
-
 @Entity
 @Table( name = "users")
 public class User extends BaseEntity {
 
-    // @Min(4)
-    // @Max(20)
+    @Column(nullable = false)
     protected String name;
     
-    @Email
+    
     @Column(nullable = false, unique = true)
     protected String email;
 
-    @NotBlank
+    @Column(nullable = false)
     protected String password;
     
     @Column(name = "last_login", nullable = false, updatable = false)
@@ -94,35 +86,4 @@ public class User extends BaseEntity {
         this.isActive = isActive;
     }
 
-    // @Override
-    // public Collection<? extends GrantedAuthority> getAuthorities() {
-    //     // TODO Auto-generated method stub
-    //     return null;
-    // }
-
-    // @Override
-    // public String getUsername() {
-    //     return getUsername();
-    // }
-
-    // @Override
-    // public boolean isAccountNonExpired() {
-    //     return true;
-    // }
-
-    // @Override
-    // public boolean isAccountNonLocked() {
-    //     return !getIsActive();
-    // }
-
-    // @Override
-    // public boolean isCredentialsNonExpired() {
-    //    return true;
-    // }
-
-    // @Override
-    // public boolean isEnabled() {
-    //    return getIsActive();
-    // }
-    
 }

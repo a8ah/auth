@@ -1,16 +1,18 @@
 package com.demo.auth.model.projection;
 
-import javax.validation.constraints.Pattern;
+import com.demo.auth.arch.utils.validators.digits.CustomDigits;
+import com.demo.auth.arch.utils.validators.phone.CustomPhone;
 
 public class PhoneRequest {
 
-    @Pattern(regexp="\\d{6,}")
+    @CustomPhone
+    @CustomDigits
     private String number;
 
-    @Pattern(regexp="\\d+")
+    @CustomDigits
     private String citycode;
 
-    @Pattern(regexp="\\d+")
+    @CustomDigits
     private String contrycode;
     
     public PhoneRequest() {

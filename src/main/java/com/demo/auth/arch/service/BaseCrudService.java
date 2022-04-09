@@ -3,13 +3,7 @@ package com.demo.auth.arch.service;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.jpa.domain.Specification;
 import org.springframework.transaction.annotation.Transactional;
-
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
 
 import com.demo.auth.arch.entity.Entity;
 import com.demo.auth.arch.repository.EntityRepository;

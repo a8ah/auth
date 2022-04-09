@@ -3,6 +3,7 @@ package com.demo.auth.service;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
+import com.demo.auth.arch.exceptions.CustomException;
 import com.demo.auth.arch.service.BaseCrudService;
 import com.demo.auth.model.entity.Phone;
 import com.demo.auth.model.entity.User;
@@ -15,7 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserService extends BaseCrudService<User,UserRepository> {
+public class UserService extends BaseCrudService<User, UserRepository> {
 
     @Autowired
     PhoneService mPhoneService;
@@ -24,33 +25,38 @@ public class UserService extends BaseCrudService<User,UserRepository> {
         super(repository);
     }
 
-    public UserSingUpProjection singUpUser(UserSingUpRequest entity) throws Exception{
-        if(null == entity)
-        throw new Exception("Bad request");
+    public UserSingUpProjection singUpUser(UserSingUpRequest entity) throws Exception {
 
-        var user = new User();
-        user.setName(entity.getName());
-        user.setEmail(entity.getEmail());
-        user.setPassword(entity.getPassword());
-        user.setActive(false);
-        user.setLastLogin(LocalDateTime.now());
-        user.setToken(UUID.randomUUID().toString());
+        try {
 
-        this.create(user);
+            var user = new User();
+            user.setName(entity.getName());
+            user.setEmail(entity.getEmail());
+            user.setPassword(entity.getPassword());
+            user.setActive(false);
+            user.setLastLogin(LocalDateTime.now());
+            user.setToken(UUID.randomUUID().toString());
 
-        for (PhoneRequest phoneRequest : entity.getPhones()) {
-            
-            var phone = new Phone();
-            
-            phone.setUser(user);
-            phone.setNumber(phoneRequest.getNumber());
-            phone.setCityCode(phoneRequest.getCitycode());
-            phone.setContryCode(phoneRequest.getCitycode());
-            
-            mPhoneService.create(phone);
+            this.create(user);
+
+            for (PhoneRequest phoneRequest : entity.getPhones()) {
+
+                var phone = new Phone();
+
+                phone.setUser(user);
+                phone.setNumber(phoneRequest.getNumber());
+                phone.setCityCode(phoneRequest.getCitycode());
+                phone.setContryCode(phoneRequest.getCitycode());
+
+                mPhoneService.create(phone);
+            }
+
+            return mRepository.findByIdAndDeletedFalse(user.getId());
+        } catch (Exception e) {
+            if(e.getLocalizedMessage().contains("[UK_6DOTKOTT2KJSP8VW4D0M25FB7]"))
+            throw new CustomException();
+            throw new Exception(e);
         }
-
-        return mRepository.findByIdAndDeletedFalse(user.getId());
 
     }
 

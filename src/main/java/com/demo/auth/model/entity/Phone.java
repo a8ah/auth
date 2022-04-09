@@ -1,12 +1,7 @@
 package com.demo.auth.model.entity;
 
-import java.time.LocalDateTime;
-import java.util.UUID;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
